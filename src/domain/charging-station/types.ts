@@ -1,4 +1,4 @@
-import { CreditCardReader } from './credit-card-reader-interfaces';
+import { CreditCardTerminal } from '../terminal/types';
 
 export interface Connector {
   id: number;
@@ -11,8 +11,5 @@ export interface ChargingStation {
   serialNumber: string;
   location: string;
   provider: string;
-  creditCardReader?: CreditCardReader;
-
-  startCharging(connectorId: number): Promise<void>;
-  stopCharging(connectorId: number): Promise<void>;
+  terminal?: CreditCardTerminal;
 }
