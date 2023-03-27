@@ -13,7 +13,7 @@ export interface Payter {
   // ...
 }
 
-export interface PayterCreditCardReader extends CreditCardTerminal {
+export interface PayterCreditCardTerminal extends CreditCardTerminal {
   provider: 'PAYTER';
   payter: Payter;
 }
@@ -23,7 +23,9 @@ export interface Square {
   // ...
 }
 
-export interface SquareCreditCardReader extends CreditCardTerminal {
+export interface SquareCreditCardTerminal extends CreditCardTerminal {
   provider: 'SQUARE';
   square: Square;
 }
+
+export type CreditCardTerminalWithProvider = SquareCreditCardTerminal | PayterCreditCardTerminal;

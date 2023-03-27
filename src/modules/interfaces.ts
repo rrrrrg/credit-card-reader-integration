@@ -15,7 +15,7 @@ export interface TerminalIdleable {
 }
 
 export interface PreAuthorizable {
-  preAuthorization(preAuthAmount: number): Promise<void>;
+  preAuthorize(preAuthAmount: number): Promise<void>;
 }
 
 export interface PrePaidable {
