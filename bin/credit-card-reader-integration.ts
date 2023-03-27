@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
-import { CreditCardReaderIntegrationStack } from '../lib/credit-card-reader-integration-stack';
+import { CreditCardReaderIntegrationStack } from '../stacks/credit-card-reader-integration-stack';
 
 const app = new cdk.App();
 new CreditCardReaderIntegrationStack(app, 'CreditCardReaderIntegrationStack', {

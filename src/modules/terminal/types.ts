@@ -1,4 +1,4 @@
-import { ProvidersEnum } from '../enums';
+import { ProvidersEnum } from '../../libs/enums';
 
 export type TerminalProviders = `${ProvidersEnum}`;
 
