@@ -1,17 +1,17 @@
 export interface ChargeStartable {
-  startChargingRequest(stationId: string, connetorId: number): Promise<void>;
+  startChargingRequest(connetorId: number): Promise<void>;
 }
 
 export interface SessionStopable {
-  stopSession(sessionId: string): Promise<void>;
+  stopSession(): Promise<void>;
 }
 
 export interface TerminalReadable {
-  setReadingMode(serialNumber: string): Promise<void>;
+  setReadingMode(): Promise<void>;
 }
 
 export interface TerminalIdleable {
-  setIdleMode(serialNumber: string): Promise<void>;
+  setIdleMode(): Promise<void>;
 }
 
 export interface PreAuthorizable {
