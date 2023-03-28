@@ -1,7 +1,10 @@
+import { object } from 'zod';
+
 export interface SerializedError {
   message: string;
   code: string;
   stack?: string;
+  cause?: string;
   metadata?: unknown;
   /**
    * ^ Consider adding optional `metadata` object to
@@ -28,7 +31,11 @@ export abstract class ErrorBase extends Error {
    * in application's log files. Only include non-sensitive
    * info that may help with debugging.
    */
-  constructor(readonly message: string, readonly metadata?: unknown) {
+  constructor(
+    readonly message: string,
+    readonly metadata?: Record<string, unknown>,
+    readonly cause?: unknown
+  ) {
     super(message);
     Error.captureStackTrace(this, this.constructor);
   }
@@ -47,6 +54,7 @@ export abstract class ErrorBase extends Error {
       message: this.message,
       code: this.code,
       stack: this.stack,
+      cause: JSON.stringify(this.cause),
       metadata: this.metadata,
     };
   }

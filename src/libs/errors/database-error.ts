@@ -11,8 +11,7 @@ export class DatabaseError extends ErrorBase {
   readonly code = ErrorCodes.datebaseError;
   readonly subcode?: string | undefined;
 
-  constructor(message: string, metadata?: unknown, subcode?: string) {
-    super(message, metadata);
-    this.subcode = subcode;
+  constructor(message: string, metadata?: Record<string, unknown>, cause?: unknown) {
+    super(message, metadata, cause);
   }
 }

@@ -16,10 +16,7 @@ export class MongoDB {
         this.client = await this.client.connect();
         this.db = this.client.db();
       } catch (error) {
-        if (error instanceof DatabaseError) {
-          throw new DatabaseError('MongoDb connection failed', {});
-        }
-        throw error;
+        throw new DatabaseError('MongoDb connection failed', {}, error);
       }
     }
 
